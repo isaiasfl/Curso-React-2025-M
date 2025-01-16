@@ -1,3 +1,4 @@
+import ProductList from "./components/useEffects/ProductList";
 import CardPlaceHolder from "./components/useEffectsCicloVida/CardPlaceHolder";
 
 const App = () => {
@@ -7,7 +8,7 @@ const App = () => {
   // };
   return (
     <div className="mx-auto bg-gray-200">
-      <div className="text-3xl font-bold underline">Hola mundo!!!</div>
+      <div className="text-3xl font-bold underline">Ejercicios básicos REACT</div>
       {/* <Contador />
       <hr className="mt-10" />
       <ContadorDoble />
@@ -26,9 +27,10 @@ const App = () => {
           <Nieto2 handleClick={handleClick} />
         </Hijo2>
       </Padre2> */}
-      <hr className="mt-10" />
+      {/* <hr className="mt-10" /> */}
       {/* <Timer /> */}
-      <CardPlaceHolder />
+      {/* <CardPlaceHolder /> */}
+      <ProductList />
     </div>
   );
 };
