@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { TaskContext } from "../context/TaskContext";
 
 const TaskForm = () => {
@@ -7,15 +8,14 @@ const TaskForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(taskNameInput.trim()!== ""){
-        addTask({
-          id: ,
-          title: xxx,
-          completed: false
-        });
-        setTaskNameInput(""); // limpiamos en input
+    if (taskNameInput.trim() !== "") {
+      addTask({
+        id: uuidv4(),
+        title: taskNameInput,
+        completed: false,
+      });
+      setTaskNameInput(""); // limpiamos en input
     }
-
   };
   return (
     <form
