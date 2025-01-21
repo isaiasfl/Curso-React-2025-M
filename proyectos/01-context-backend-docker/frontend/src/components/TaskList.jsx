@@ -16,11 +16,23 @@ const TaskList = () => {
             key={task.id}
             className="flex justify-between items-center p-2 mb-2 bg-white rounded-md shadow-md"
           >
-            <span className="flex-1 xxxxx">{task.title}</span>
-            <button className="px-3 py-1 bg-blue-500 text-white rounded mr-2">
+            <span
+              className={`flex-1 ${
+                task.completed ? "line-through text-gray-600" : ""
+              }`}
+            >
+              {task.title}
+            </span>
+            <button
+              className="px-3 py-1 bg-blue-500 text-white rounded mr-2"
+              onClick={() => toggleTaskCompletion(task.id)}
+            >
               Completar
             </button>
-            <button className="px-3 py-1 bg-red-500 text-white rounded mr-2">
+            <button
+              className="px-3 py-1 bg-red-500 text-white rounded mr-2"
+              onClick={() => deleteTask(task.id)}
+            >
               Eliminar
             </button>
           </li>

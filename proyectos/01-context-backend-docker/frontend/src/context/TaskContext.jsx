@@ -25,6 +25,7 @@ export const TaskProvider = ({ children }) => {
 
   // acciones que puedo realizar con las tareas:
   //- crear tarea
+
   const addTask = (task) => {
     setTasks((prevTasks) => [...prevTasks, task]);
   };
