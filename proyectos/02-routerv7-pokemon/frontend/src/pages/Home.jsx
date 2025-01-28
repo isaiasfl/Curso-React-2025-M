@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Spinner from "../components/Spinner";
+import { usePokemon } from "../context/PokemonContext";
 
 const Home = () => {
   const [pokemons, setPokemons] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { addToFavorites } = usePokemon();
 
   useEffect(() => {
     fetchPokemons();
@@ -38,7 +41,11 @@ const Home = () => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Spinner />
+      </div>
+    );
   }
 
   return (
@@ -51,7 +58,7 @@ const Home = () => {
           <div key={pokemon.id} className="bg-white shadow-md rounded-md p-6">
             <div className="relative group">
               <img
-                src={pokemon.sprites.front_default}
+                src={pokemon.sprites.other.dream_world.front_default}
                 alt={pokemon.name}
                 className="w-32 h-32 mx-auto transform group-hover:scale-120 transition-transform duration-500"
               />
@@ -64,6 +71,7 @@ const Home = () => {
               <button
                 className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-800"
                 // onClick={hand} aquí llamaré a la función del contexto para añadir a favoritos
+                onClick={() => addToFavorites(pokemon)}
               >
                 Añadir a Favoritos
               </button>
@@ -74,7 +82,6 @@ const Home = () => {
                 to={`/search/${pokemon.name}`}
                 className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-800"
               >
-                
                 Ver Detalles
               </Link>
             </div>
