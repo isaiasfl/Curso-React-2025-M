@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { PacmanLoader } from "react-spinners";
 import MovieCard from "../components/MovieCard";
 import { useFetch } from "../hooks/useFetch";
 import { getPopularMovies } from "../services/tmdb";
@@ -49,7 +50,7 @@ const Home = () => {
           Películas Populares
         </h2>
         {loading ? (
-          <div> Cargando Películas...</div>
+          <PacmanLoader color="#3a6bca" margin={0} size={25} />
         ) : (
           <>
             {/* grid de las películas */}
@@ -67,7 +68,7 @@ const Home = () => {
               <button
                 onClick={() => handlePageChange(page - 1)}
                 className=" text-white px-4 py-2 rounded-lg transition-colors duration-200 bg-sky-800 hover:bg-sky-950"
-                disabled={page ===1}
+                disabled={page === 1}
               >
                 Anterior
               </button>
